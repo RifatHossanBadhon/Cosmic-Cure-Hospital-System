@@ -1,4 +1,4 @@
-# 🌌 Cosmic Cure – Hospital Management System 🏥
+# Cosmic Cure – Hospital Management System 🏥
 
 **Cosmic Cure** is a professional, user-centric **Hospital Management System** built to digitalize hospital operations. It features role-based panels to improve efficiency and care quality.
 
