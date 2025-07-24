@@ -15,11 +15,11 @@
 - **💊 Medicine Inventory Manager**  
   Track medicine stock, expiry dates, and availability in real time.
 
-- **🤖 AI Symptom Checker (Chatbot)**  
-  Helps patients get preliminary insights before a real consultation.(Upcoming)
-  **Keywords
-  symptoms, sick, appointment, book, help, support, doctor, pharmacy, medicine, fever, cold, headache, emergency, hospital system, healthcare, patient management, chatbot, telemedicine
-
+- **🤖 Symptom Checker (Chatbot)**  
+  Helps patients get preliminary insights before a real consultation.Keywords symptoms, sick, appointment, book, help, support, doctor, pharmacy, medicine,
+  fever, cold, headache, emergency, hospital system, healthcare, patient management, chatbot, telemedicine
+  
+  
 - **📊 Financial & Analytics Dashboards**  
   Monitor hospital performance, revenue, and data-driven insights.
 
