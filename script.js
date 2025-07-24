@@ -87,4 +87,92 @@ document.addEventListener('DOMContentLoaded', () => {
             showPage(firstSection.id);
         }
     }
+        const chatbotIcon = document.getElementById('chatbot-icon');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const closeChatbotBtn = document.getElementById('close-chatbot');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+
+        if (chatbotIcon && chatbotContainer && closeChatbotBtn && chatbotInput && chatbotSendBtn && chatbotMessages) {
+            chatbotIcon.addEventListener('click', () => {
+                chatbotContainer.classList.toggle('active');
+            });
+
+            closeChatbotBtn.addEventListener('click', () => {
+                chatbotContainer.classList.remove('active');
+            }); 
+
+            const addChatMessage = (message, sender) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                messageDiv.textContent = message;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            };
+
+            const generateBotResponse = (message) => {
+                const lowerCaseMessage = message.toLowerCase();
+                if (lowerCaseMessage.includes('symptoms') || lowerCaseMessage.includes('sick')) {
+                    return "I'm sorry to hear that. Please describe your symptoms in more detail, and I can suggest if you should see a doctor.";
+                } else if (lowerCaseMessage.includes('appointment') || lowerCaseMessage.includes('book')) {
+                    return "You can book an appointment through the 'Book an Appointment' section on the patient dashboard. Would you like me to guide you there?";
+                } else if (lowerCaseMessage.includes('help') || lowerCaseMessage.includes('support')) {
+                    return "I'm here to help! What specific assistance do you need?";
+                } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+                    return "Hello there! How can I assist you today?";
+                } else if (lowerCaseMessage.includes('thank you') || lowerCaseMessage.includes('thanks')) {
+                    return "You're welcome! Is there anything else I can help you with?";
+                } else if (lowerCaseMessage.includes('doctor')) {
+                    return "Are you looking for a specific doctor or a specialist? You can find a list of our doctors in the 'Heroes' section.";
+                } else if (lowerCaseMessage.includes('pharmacy') || lowerCaseMessage.includes('medicine')) {
+                    return "Our pharmacy services are available on-site. Do you need information about a specific medicine or prescription?";
+                } else if (lowerCaseMessage.includes('fever')) {
+                    return "Fever can be a symptom of many conditions. Please monitor your temperature and other symptoms. If it's high or persistent, consider consulting a doctor.";
+                } else if (lowerCaseMessage.includes('cold')) {
+                    return "For a common cold, rest, fluids, and over-the-counter remedies can help. If symptoms worsen or don't improve, please see a doctor.";
+                } else if (lowerCaseMessage.includes('headache')) {
+                    return "Headaches can have various causes. Try resting, staying hydrated, and pain relievers. If you experience severe, sudden, or unusual headaches, seek medical attention.";
+                } else if (lowerCaseMessage.includes('emergency')) {
+                    return "If this is a medical emergency, please use the 'Emergency Help' button on your patient dashboard or call emergency services immediately.";
+                } else {
+                    return "I'm a bot and might not understand complex queries. Can you rephrase your question or ask about symptoms, appointments, or general help?";
+                }
+            };
+
+            const handleChatbotSend = () => {
+                const userMessage = chatbotInput.value.trim();
+                if (userMessage) {
+                    addChatMessage(userMessage, 'user');
+                    chatbotInput.value = '';
+
+                    setTimeout(() => {
+                        const botResponse = generateBotResponse(userMessage);
+                        addChatMessage(botResponse, 'bot');
+                    }, 500);
+                }
+            };
+
+            chatbotSendBtn.addEventListener('click', handleChatbotSend);
+            chatbotInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleChatbotSend();
+                }
+            });
+        const originalShowPage = showPage;
+        showPage = (pageId) => {
+            originalShowPage(pageId);
+            if (pageId === 'home') {
+                chatbotIcon.style.display = 'flex';
+            } else {
+                chatbotIcon.style.display = 'none';
+                chatbotContainer.classList.remove('active');
+            }
+        };
+        if (document.getElementById('home') && document.getElementById('home').classList.contains('active')) {
+            chatbotIcon.style.display = 'flex';
+        } else {
+            chatbotIcon.style.display = 'none';
+        }
+    }
 });
