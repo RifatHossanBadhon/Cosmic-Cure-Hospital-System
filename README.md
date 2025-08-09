@@ -3,7 +3,8 @@
 **Cosmic Cure** is a professional, user-centric **Hospital Management System** built to digitalize hospital operations. It features role-based panels to improve efficiency and care quality.
 
 
-https://github.com/RifatHossanBadhon/Cosmic-Cure-Hospital-System/blob/b1d1c235e14d83de4bcc9ad66ffe66216f19b7a3/Screeenshot/Screenshot%202025-08-09%20213843.png
+![App Screenshot](Screeenshot/Screenshot%202025-08-09%20213843.png)
+
 
 ---
 
