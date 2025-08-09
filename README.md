@@ -71,5 +71,6 @@ This project was built by learning from various platforms including:
 
 - https://rifathossanbadhon.github.io/Cosmic-Cure-Hospital-System/
 - Youtube: https://youtu.be/OZJHrYfzmxY
+- SetUp: https://youtu.be/uTRSyVh0Z3c
 
 - This version contains frontend portion only backend development is in progress and will be added soon
